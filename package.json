@@ -1,6 +1,6 @@
 {
   "name": "checkout-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "a CLI that allows users to pick the branch they want to checkout",
   "main": "index.js",
   "scripts": {
