@@ -1,0 +1,29 @@
+{
+  "name": "checkout",
+  "version": "1.0.0",
+  "description": "a CLI that allows users to pick the branch they want to checkout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeyism/node-checkout-cli.git"
+  },
+  "bin": "index.js",
+  "author": "joeyism",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joeyism/node-checkout-cli/issues"
+  },
+  "homepage": "https://github.com/joeyism/node-checkout-cli#readme",
+  "dependencies": {
+    "colors": "^1.1.0",
+    "inquirer": "^0.8.5",
+    "promise": "^7.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  }
+}
