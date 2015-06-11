@@ -31,10 +31,10 @@ describe('git', function(){
         });
 
         it('should successfully return all branch information', function(done){
-            mockery.registerMock('child_process',fakeChild(null ,'123 refs/heads/branch1\n 123 refs/heads/branch2\n'));
+            mockery.registerMock('child_process',fakeChild(null ,'123 refs/heads/branch1\n 123 refs/heads/feature/branch2\n'));
             git = require('../lib/git');
             git.getAllBranches().then(function(branches){
-                expect(branches).to.deep.equal(['branch1','branch2']);
+                expect(branches).to.deep.equal(['branch1','feature/branch2']);
                 done();
             });
         });
