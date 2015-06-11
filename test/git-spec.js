@@ -88,4 +88,39 @@ describe('git', function(){
     
     });
 
+    describe('getCurrentBranch', function(){
+    
+        beforeEach(function(done){
+            mockery.enable({
+                warnOnReplace: false,
+                warnOnUnregistered: false,
+                useCleanCache: true
+            });
+            done();
+        });
+
+        afterEach(function(done){
+            mockery.resetCache();
+            mockery.deregisterAll();
+            done();
+        });
+        
+        it('should successfully return the current branch the user is on', function(done){
+            mockery.registerMock('child_process', fakeChild(null, 'develop\n'));
+            git = require('../lib/git');
+            git.getCurrentBranch().then(function(currentBranch){
+                expect(currentBranch).to.equal('develop');
+                done();
+            });       
+        });
+        
+        it('should throw an error when getting current branch throws an error', function(done){
+            mockery.registerMock('child_process', fakeChild('error','whatever'));
+            git = require('../lib/git');
+            git.getCurrentBranch().catch(function(error){
+                expect(error).to.equal('error');
+                done();
+            });       
+        });
+    });
 });

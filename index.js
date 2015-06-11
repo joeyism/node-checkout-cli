@@ -4,10 +4,18 @@
 var git = require('./lib/git');
 var prompt = require('./lib/prompt');
 require('colors');
+var resultObj = {};
 
 git.getAllBranches().then(function(branches){
     
-    return prompt.branches(branches);
+    resultObj.branches = branches;
+    return git.getCurrentBranch();
+
+}).then(function(currentBranch){
+
+    resultObj.currentBranch = currentBranch;
+    console.log('Your current branch is ' + currentBranch.bold);
+    return prompt.branches(resultObj.branches);
 
 }).then(function(checkoutBranch){
     
@@ -19,6 +27,6 @@ git.getAllBranches().then(function(branches){
 
 }).catch(function(err){
 
-    console.log(err.red);
+    console.log(err.toString().red);
 
 });
