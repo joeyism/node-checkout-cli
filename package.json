@@ -4,7 +4,7 @@
   "description": "a CLI that allows users to pick the branch they want to checkout",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha"
+    "test": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,11 @@
     "url": "https://github.com/joeyism/node-checkout-cli/issues"
   },
   "homepage": "https://github.com/joeyism/node-checkout-cli#readme",
-  "keywords": ["git", "checkout", "cli"],
+  "keywords": [
+    "git",
+    "checkout",
+    "cli"
+  ],
   "dependencies": {
     "colors": "^1.1.0",
     "inquirer": "^0.8.5",
@@ -27,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
+    "istanbul": "^0.3.15",
     "mocha": "^2.2.5",
     "mockery": "^1.4.0"
   }
