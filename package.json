@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/joeyism/node-checkout-cli.git"
   },
-  "bin":{
-      "checkout": "index.js"
+  "bin": {
+    "checkout": "index.js"
   },
   "author": "joeyism",
   "license": "ISC",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "mockery": "^1.4.0"
   }
 }
