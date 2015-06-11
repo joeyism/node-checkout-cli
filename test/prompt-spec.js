@@ -39,4 +39,37 @@ describe('prompt', function(){
             });
         });
     });
+
+    describe('newBranch', function(){
+
+        beforeEach(function(done){
+            mockery.enable({
+                warnOnReplace: false,
+                warnOnUnregistered: false,
+                useCleanCache: true
+            });
+            done();
+        });
+
+        afterEach(function(done){
+            mockery.resetCache();
+            mockery.deregisterAll();
+            done();
+        });
+
+        it('should successfully return the answers to the user\' prompt questions',function(done){
+            var answer = {newBranchName : 'new-branch'}; 
+            var mockInq = {
+                prompt: function(question, callback){
+                    callback(answer);
+                }
+            };
+            mockery.registerMock('inquirer', mockInq);
+            prompt = require('../lib/prompt');
+            prompt.newBranchName().then(function(result){
+                expect(result).to.equal('new-branch');
+                done();
+            });
+        });
+    });
 });
