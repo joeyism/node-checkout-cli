@@ -1,10 +1,10 @@
 {
   "name": "checkout-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "a CLI that allows users to pick the branch they want to checkout",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
