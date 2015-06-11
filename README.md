@@ -8,4 +8,14 @@ A simple tool so you don't have to wonder which branch you should run your 'git 
 
 ### To Run
 
+To checkout into an existing branch, run
+
     > checkout
+
+#### New
+
+To create a new branch, run
+
+    > checkout new [branch name]
+
+If [branch name] is not included, then it'll prompt you for the new branch name you would like to create
