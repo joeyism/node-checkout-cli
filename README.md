@@ -1,4 +1,5 @@
 # Checkout-CLI
+[![Build Status](https://travis-ci.org/joeyism/node-checkout-cli.svg?branch=master)](https://travis-ci.org/joeyism/node-checkout-cli)
 
 A simple tool so you don't have to wonder which branch you should run your 'git checkout'. Once you run *checkout*, a list of your available local branches will be shown.
 
