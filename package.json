@@ -19,6 +19,7 @@
     "url": "https://github.com/joeyism/node-checkout-cli/issues"
   },
   "homepage": "https://github.com/joeyism/node-checkout-cli#readme",
+  "keywords": ["git", "checkout", "cli"],
   "dependencies": {
     "colors": "^1.1.0",
     "inquirer": "^0.8.5",
