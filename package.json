@@ -1,6 +1,6 @@
 {
   "name": "checkout-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "a CLI that allows users to pick the branch they want to checkout",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "colors": "^1.1.0",
     "inquirer": "^0.8.5",
+    "lodash": "^3.9.3",
     "promise": "^7.0.1"
   },
   "devDependencies": {

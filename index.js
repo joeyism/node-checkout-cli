@@ -10,14 +10,16 @@ var newBranchName;
 
 
 if(params.every(function(param,i){
-    var isNew = param.toLowerCase() !== "new";
-    if (!isNew){
+    var isNotNew = param.toLowerCase() !== "new";
+    if (!isNotNew){
         indexOfNew = i;
     }
-    return isNew;
+    return isNotNew;
 })){
+    var type = params[2] || 'local';
+
     var resultObj = {};
-    git.getAllBranches().then(function(branches){
+    git.getBranches[type]().then(function(branches){
 
         resultObj.branches = branches;
         return git.getCurrentBranch();

@@ -71,5 +71,13 @@ describe('prompt', function(){
                 done();
             });
         });
+
+        it('should successfully return the branch if the branch was passed in',function(done){
+            prompt = require('../lib/prompt');
+            prompt.newBranchName('new-branch').then(function(result){
+                expect(result).to.equal('new-branch');
+                done();
+            });
+        });
     });
 });
