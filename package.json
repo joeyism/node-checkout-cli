@@ -27,6 +27,7 @@
   "dependencies": {
     "colors": "^1.1.0",
     "inquirer": "^0.8.5",
+    "lodash": "^3.9.3",
     "promise": "^7.0.1"
   },
   "devDependencies": {
