@@ -7,7 +7,7 @@ require('colors');
 var params = process.argv;
 var indexOfNew;
 var newBranchName;
-
+var branch;
 
 if(params.every(function(param,i){
     var isNotNew = param.toLowerCase() !== "new";
@@ -16,47 +16,68 @@ if(params.every(function(param,i){
     }
     return isNotNew;
 })){
-    var type = params[2] || 'local';
+    if (params[2] === 'local' || params[2] === 'all' || params[2] === undefined){
 
-    var resultObj = {};
-    git.getBranches[type]().then(function(branches){
+        var type = params[2] || 'local';
 
-        resultObj.branches = branches;
-        return git.getCurrentBranch();
+        var resultObj = {};
+        git.getBranches[type]().then(function(branches){
 
-    }).then(function(currentBranch){
+            resultObj.branches = branches;
+            return git.getCurrentBranch();
 
-        resultObj.currentBranch = currentBranch;
-        console.log('Your current branch is ' + currentBranch.bold);
-        return prompt.branches(resultObj.branches);
+        }).then(function(currentBranch){
 
-    }).then(function(checkoutBranch){
+            resultObj.currentBranch = currentBranch;
+            console.log('Your current branch is ' + currentBranch.bold);
+            return prompt.branches(resultObj.branches);
 
-        return git.checkout(checkoutBranch);
+        }).then(function(checkoutBranch){
 
-    }).then(function(branch){
+            return git.checkout(checkoutBranch);
+            
+        }).then(function(branch){
 
-        console.log('You are now in ' + branch.bold + ' branch');
+            console.log('You are now in ' + branch.bold + ' branch');
 
-    }).catch(function(err){
+        }).catch(function(err){
 
-        console.log(err.toString().red);
+            console.log(err.toString().red);
 
-    });
+        });
+
+    }
+    else {
+        
+        git.checkout(params[2]).then(function(branch){
+
+            console.log('You are now in ' + branch.bold + ' branch');
+
+        }).catch(function(err){
+
+            console.log(err.toString().red);
+
+        });
+
+        
+    }
+    
+    
+
 }
 else {
 
     prompt.newBranchName(params[indexOfNew + 1]).then(function(newBranchName){
-    
+
         return git.newBranch(newBranchName);
 
     }).then(function(newBranchName){
-    
+
         console.log('New branch created. You are now in your new branch ' + newBranchName.bold);
 
     }).catch(function(err){
-    
+
         console.log(err.toString().red);
-    
+
     });
 }
