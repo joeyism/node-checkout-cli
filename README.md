@@ -26,8 +26,17 @@ To create a new branch, run
 
 If [branch name] is not included, then it'll prompt you for the new branch name you would like to create
 
+### Checkout with name
+
+To just checkout to a different branch, run
+
+    > checkout [branch]
+
+Then you will be in local branch [branch]
 
 ### Version Updates
+#### 1.3.0
+* Added ability to checkout to branch just with name
 
 #### 1.2.0
 * Added ability to checkout any branches, whether it is local or remote
